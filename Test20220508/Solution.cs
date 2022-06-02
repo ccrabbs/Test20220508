@@ -30,7 +30,7 @@ namespace Test20220508
             //string.Format("{0} appears {1} time{2}", resultString, vowel.Count, vowel.Count > 0 ? "s" : string.Empty);
             return resultString;
         }
-        public static string solution2(string S)
+        public static string Solution2(string S)
         {
             char[] skipThem = { ' ', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', ',', '.', '/', ';', '\'', '[', ']', '\\', ':', '"', '<', '>', '?' };
             var strings = S.ToLower().Split(skipThem, System.StringSplitOptions.RemoveEmptyEntries).GroupBy(s => s).Select(group => new { Value = group.Key, Count = group.Count() }).OrderBy(group => group.Value);
@@ -43,7 +43,7 @@ namespace Test20220508
             }
             return resultString;
         }
-        public static string solution3(string S)
+        public static string Solution3(string S)
         {
             char[] skipThem = { ' ', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', ',', '.', '/', ';', '\'', '[', ']', '\\', ':', '"', '<', '>', '?' };
             var strings = S.ToLower().Split(skipThem, System.StringSplitOptions.RemoveEmptyEntries).GroupBy(s => s).Select(group => new { Value = group.Key, Count = group.Count() }).OrderBy(group => group.Value);
@@ -56,7 +56,7 @@ namespace Test20220508
             }
             return resultString;
         }
-        public static string solution4(string S)
+        public static string Solution4(string S)
         {
             List<char> skipThem = new();
             char c = char.MinValue;
@@ -75,9 +75,9 @@ namespace Test20220508
             }
             return resultString;
         }
-        public static string solution5(string S)
+        public static string Solution5(string S)
         {
-            Regex rx = new Regex(@"[,.;:/? !()\\-]+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex rx = new(@"[,.;:/? !()\\-]+", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             var strings = rx.Split(S.ToLower()).Where(s => s != string.Empty).GroupBy(s => s).Select(group => new { Value = group.Key, Count = group.Count() }).OrderBy(group => group.Value);
             string resultString = string.Empty;
             string spacer = string.Empty;
@@ -88,6 +88,5 @@ namespace Test20220508
             }
             return resultString;
         }
-
     }
 }
